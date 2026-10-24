@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CorrigirFácil</title>
+<link rel="stylesheet" href="style.css">
+<header><span>◉ CorrigirFácil</span><small>Correção pelo celular</small></header>
+<main>
+<section class="intro"><p class="tag">MENOS TEMPO CORRIGINDO</p><h1>Da foto à nota,<br>com você no controle.</h1><p>Cadastre as respostas, fotografe as marcações e confira a leitura.</p></section>
+<section><h2>1. Respostas da prova</h2><div class="fields"><label>Nome da prova<input id="title" placeholder="Ex.: Matemática · 8º ano" maxlength="100"></label><label>Aluno<input id="student" placeholder="Nome do aluno" maxlength="100"></label></div><div class="fields"><label>Alternativas por questão<select id="choices"><option>2</option><option>3</option><option selected>4</option><option>5</option></select></label><label>Nota máxima<input id="maximum" type="number" min="0.1" step="0.1" value="10"></label></div><label>Gabarito correto<textarea id="key" placeholder="A B C D A B C D A B" rows="3"></textarea></label><p class="hint">Separe as respostas por espaço, vírgula ou quebra de linha. Até 200 questões.</p></section>
+<section><h2>2. Foto do gabarito</h2><p>Use uma foto nítida, de frente e bem iluminada. Nesta versão, selecione um bloco com uma questão por linha e alternativas em colunas igualmente espaçadas.</p><label class="upload">📷 Fotografar ou escolher imagem<input id="photo" type="file" accept="image/*" capture="environment"></label><div id="reader" hidden><p class="hint">Toque no centro da primeira alternativa da primeira questão e depois no centro da última alternativa da última questão. Os pontos definem a grade de leitura. Para uma questão, toque nas alternativas inicial e final da mesma linha.</p><canvas id="canvas" aria-label="Foto: selecione os dois extremos da grade"></canvas><button id="reset" class="secondary">Refazer seleção</button><button id="read">Analisar marcações</button><p class="hint">A leitura compara a escuridão das alternativas. Texto, sombras, desalinhamento e rasuras podem causar erros. Para blocos múltiplos ou formatos irregulares, use o preenchimento manual abaixo.</p></div><button id="manual" class="secondary">Preencher respostas manualmente</button></section>
+<section id="review" hidden><h2>3. Confira antes de corrigir</h2><p>Revise todas as respostas na foto. “Revisar” indica leitura ambígua; selecione a resposta ou deixe em branco.</p><div id="answers"></div><button id="grade">Calcular resultado</button></section>
+<section id="result" hidden aria-live="polite"></section><p id="message" role="status"></p>
+<footer>As fotos são processadas neste dispositivo e não são enviadas para um servidor. Nenhum dado é salvo automaticamente.</footer>
+</main><script src="app.js"></script>
+</html>
